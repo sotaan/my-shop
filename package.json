@@ -10,6 +10,7 @@
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
+    "buefy": "^0.7.2",
     "vue": "^2.5.22",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
@@ -22,6 +23,7 @@
     "@vue/cli-service": "^3.4.0",
     "@vue/eslint-config-standard": "^4.0.0",
     "@vue/test-utils": "^1.0.0-beta.20",
+    "axios": "^0.18.0",
     "babel-eslint": "^10.0.1",
     "chai": "^4.1.2",
     "eslint": "^5.8.0",
@@ -30,6 +32,8 @@
     "lint-staged": "^8.1.0",
     "sass": "^1.16.0",
     "sass-loader": "^7.1.0",
+    "vue-cli-plugin-axios": "^0.0.4",
+    "vue-cli-plugin-buefy": "^0.3.4",
     "vue-template-compiler": "^2.5.21"
   },
   "gitHooks": {
