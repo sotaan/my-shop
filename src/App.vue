@@ -16,12 +16,12 @@ export default {
     NavBar
   },
 
-  computed: {
-    ...mapActions(['prepareProducts'])
-  },
-
   created () {
     this.prepareProducts()
+  },
+
+  methods: {
+    ...mapActions(['prepareProducts'])
   }
 }
 </script>
