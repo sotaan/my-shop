@@ -12,17 +12,31 @@
         </div>
       </div>
     </section>
+    <div class="box">
+      <ProductCard
+        v-for="product in products"
+        :key="product.id"
+        :photos="product.photos"
+        :title="product.title"
+      />
+    </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex'
+import ProductCard from '@/components/ProductCard'
 
 export default {
   name: 'Products',
 
+  components: {
+    ProductCard
+  },
+
   computed: {
-    ...mapState('products', ['products'])
+    ...mapGetters('products', ['products']),
+    ...mapState('products', ['loaded'])
   }
 }
 </script>

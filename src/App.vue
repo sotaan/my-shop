@@ -8,11 +8,20 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import NavBar from '@/components/NavBar'
 
 export default {
   components: {
     NavBar
+  },
+
+  computed: {
+    ...mapActions(['prepareProducts'])
+  },
+
+  created () {
+    this.prepareProducts()
   }
 }
 </script>
