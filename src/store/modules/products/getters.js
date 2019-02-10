@@ -8,6 +8,8 @@ export default {
   products (state) {
     const { photos, albums } = state
 
+    if (!photos.length || !albums.length) return []
+
     return albums.map((album) => {
       const albumPhotos = photos.reduce((acc, photo) => {
         if (photo.albumId === album.id) {

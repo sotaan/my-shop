@@ -1,55 +1,68 @@
 <template>
   <div class="card">
     <div class="card-image">
-      <figure class="image is-4by3">
-        <img
-          :src="imageSrc"
-          alt="Placeholder image"
-        >
-      </figure>
+      <PhotosCarousel
+        :photos="photos"
+        :current-index="currentIdx"
+      />
     </div>
     <div class="card-content">
       <div class="media">
         <div class="media-content">
           <p
             class="title is-4"
-            v-text="albumTitle"
+            v-text="title"
           />
           <p
             class="subtitle is-6"
-            v-text="currentPhotoTitle"
+            v-text="currentPhoto.title"
           />
         </div>
       </div>
 
       <div class="content">
         <template v-html="description" />
-        <a>{{ userId }}</a>.
-        <a href="#">
-          #css
-        </a>
-        <a href="#">
-          #responsive
-        </a>
-        <br>
-        <time datetime="2016-1-1">
-          11:09 PM - 1 Jan 2016
-        </time>
+        by #<a>{{ userId }}</a>.
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import PhotosCarousel from './PhotosCarousel'
+
 export default {
+  name: 'ProductsCard',
+
+  components: {
+    PhotosCarousel
+  },
+
   props: {
-    imageSrc: {
-      type: String,
-      default: 'https://bulma.io/images/placeholders/1280x960.png'
+    photos: {
+      type: Array,
+      default: () => []
     },
     description: {
       type: String,
       default: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br>Phasellus nec iaculis mauris.'
+    },
+    title: {
+      type: String,
+      default: 'My pretty album'
+    }
+  },
+
+  data () {
+    return {
+      currentIdx: 0
+    }
+  },
+
+  computed: {
+    currentPhoto () {
+      const { currentIdx, photos } = this
+      return photos[currentIdx]
     }
   }
 }
