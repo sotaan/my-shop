@@ -9,10 +9,10 @@
       >
         <img
           class="is-background"
-          :src="photo.url"
+          :src="photo.thumbnailUrl"
           alt
-          width="600"
-          height="600"
+          width="150"
+          height="150"
         >
         <div class="title">
           {{ photo.title }}
@@ -47,10 +47,6 @@ export default {
       type: Array,
       default: () => []
     }
-  },
-
-  mounted () {
-
   }
 }
 </script>
