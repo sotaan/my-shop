@@ -5,7 +5,7 @@
         v-for="(photo, idx) in photos"
         :key="photo.id"
         class="carousel-item has-background"
-        :class="currentIndex === idx ? 'is-active' : ''"
+        :class="idx === 0 ? 'is-active' : ''"
       >
         <img
           class="is-background"
@@ -39,10 +39,6 @@
 <script>
 export default {
   props: {
-    currentIndex: {
-      type: Number,
-      default: -1
-    },
     photos: {
       type: Array,
       default: () => []

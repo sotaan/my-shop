@@ -3,7 +3,6 @@
     <div class="card-image">
       <PhotosCarousel
         :photos="photos"
-        :current-index="currentIdx"
       />
     </div>
     <div class="card-content">
@@ -59,7 +58,8 @@ export default {
 
   data () {
     return {
-      currentIdx: 0
+      currentIdx: 0,
+      carousels: null
     }
   },
 
@@ -68,6 +68,14 @@ export default {
       const { currentIdx, photos } = this
       return photos[currentIdx]
     }
+  },
+
+  mounted () {
+    this.carousels = this.$bulmaCarousel.attach()
+  },
+
+  beforeDestroy () {
+    this.carousels = null
   }
 }
 </script>
