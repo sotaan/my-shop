@@ -15,17 +15,23 @@
 
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a class="navbar-item">
+        <router-link
+          class="navbar-item"
+          to="/"
+        >
           Products
-        </a>
+        </router-link>
       </div>
 
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
-            <a class="button is-primary">
+            <router-link
+              to="/cart"
+              class="button is-primary"
+            >
               <strong>My Cart ({{ nbProductsInCart }})</strong>
-            </a>
+            </router-link>
           </div>
         </div>
       </div>
