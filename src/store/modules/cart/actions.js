@@ -1,6 +1,6 @@
 export default {
   /**
-   * Handle product and requested count in cart:
+   * Handle product and requested quantity in product row from cart:
    *
    * 1. product row exists: increment or decrement count
    * 2. product row don't exists: create row with count
@@ -11,7 +11,7 @@ export default {
    * @param   {number}  count               The product count to increment/decrement
    * @param   {boolean} [increment=false]   Whether count shall be incremented or decremented
    */
-  handleCountForProduct ({ state, commit, dispatch }, { id, count, increment = true }) {
+  handleQuantityForProduct ({ state, commit, dispatch }, { id, count, increment = true }) {
     return dispatch('findProductRow', id)
       .then((idx) => {
         if (idx) {

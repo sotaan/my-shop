@@ -27,6 +27,7 @@
             :photos="product.photos"
             :title="product.title"
             :user-id="product.userId"
+            @add-quantity="(count) => handleQuantity(product, count)"
           />
         </div>
       </div>
@@ -36,7 +37,7 @@
 
 <script>
 import chunk from 'lodash.chunk'
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState, mapActions } from 'vuex'
 import ProductCard from '@/components/ProductCard'
 
 export default {
@@ -58,10 +59,19 @@ export default {
 
     rows () {
       return chunk(this.page, this.nbColumns)
-    },
+    }
+  },
 
-    nbRows () {
-      return this.rows.length
+  methods: {
+    ...mapActions('cart', ['handleQuantityForProduct']),
+
+    handleQuantity (product, count) {
+      const { id } = product
+
+      this.handleQuantityForProduct({
+        id,
+        count
+      })
     }
   }
 }
