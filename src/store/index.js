@@ -19,6 +19,6 @@ export default new Vuex.Store({
   },
   plugins: [createPersistedState({
     key: 'my-shop',
-    paths: 'cart.cart'
+    paths: ['cart.cart']
   })]
 })
