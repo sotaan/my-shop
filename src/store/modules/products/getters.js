@@ -23,5 +23,33 @@ export default {
         photos: albumPhotos
       }
     })
+  },
+
+  /**
+   * Prepares metadata for pagination about current page in UI
+   *
+   * @param {object} state      The module state
+   * @returns {Array<object>}   The paginated data
+   */
+  currentPageMeta (state) {
+    const { currentPageIdx, pageSize } = state
+
+    return {
+      start: currentPageIdx * pageSize,
+      end: pageSize
+    }
+  },
+
+  /**
+   * Prepares current page of products to render
+   *
+   * @param {object} state      The module state
+   * @returns {Array<object>}   The paginated data
+   */
+  page (_, getters) {
+    const { currentPageMeta, products } = getters
+    const { start, end } = currentPageMeta
+
+    return products.slice(start, end)
   }
 }
