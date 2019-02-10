@@ -21,8 +21,8 @@
       </div>
 
       <div class="content">
-        <template v-html="description" />
-        by #<a>{{ userId }}</a>.
+        <span v-html="description" />
+        <br>by #<a>{{ userId }}</a>.
       </div>
     </div>
   </div>
