@@ -50,6 +50,10 @@ export default {
     title: {
       type: String,
       default: 'My pretty album'
+    },
+    userId: {
+      type: Number,
+      default: -1
     }
   },
 

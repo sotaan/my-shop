@@ -18,6 +18,7 @@
         :key="product.id"
         :photos="product.photos"
         :title="product.title"
+        :user-id="product.userId"
       />
     </div>
   </div>
