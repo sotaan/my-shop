@@ -2,7 +2,7 @@
   <div class="as-products">
     <section class="hero is-bold is-primary">
       <div class="hero-body">
-        <div class="container">
+        <div class="container is-fluid">
           <h1 class="title">
             Products
           </h1>
@@ -12,19 +12,30 @@
         </div>
       </div>
     </section>
-    <div class="container">
-      <ProductCard
-        v-for="product in page"
-        :key="product.id"
-        :photos="product.photos"
-        :title="product.title"
-        :user-id="product.userId"
-      />
+    <div class="container is-fluid">
+      <div
+        v-for="(row, i) in rows"
+        :key="`row-${i}`"
+        class="columns"
+      >
+        <div
+          v-for="(product, j) in row"
+          :key="`row-${i}-column-${j}`"
+          class="column is-3"
+        >
+          <ProductCard
+            :photos="product.photos"
+            :title="product.title"
+            :user-id="product.userId"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import chunk from 'lodash.chunk'
 import { mapGetters, mapState } from 'vuex'
 import ProductCard from '@/components/ProductCard'
 
@@ -35,9 +46,23 @@ export default {
     ProductCard
   },
 
+  data () {
+    return {
+      nbColumns: 4
+    }
+  },
+
   computed: {
     ...mapGetters('products', ['page']),
-    ...mapState('products', ['loaded'])
+    ...mapState('products', ['loaded']),
+
+    rows () {
+      return chunk(this.page, this.nbColumns)
+    },
+
+    nbRows () {
+      return this.rows.length
+    }
   }
 }
 </script>
