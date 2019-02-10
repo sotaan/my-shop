@@ -7,14 +7,14 @@
             Products
           </h1>
           <h2 class="subtitle">
-            Put something here
+            Buy some of our albums with nice photos!
           </h2>
         </div>
       </div>
     </section>
-    <div class="box">
+    <div class="container">
       <ProductCard
-        v-for="product in products"
+        v-for="product in page"
         :key="product.id"
         :photos="product.photos"
         :title="product.title"
@@ -36,7 +36,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters('products', ['products']),
+    ...mapGetters('products', ['page']),
     ...mapState('products', ['loaded'])
   }
 }
