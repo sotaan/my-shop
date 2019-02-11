@@ -27,5 +27,13 @@ export default {
    */
   CHANGE_PRODUCT_ROW_COUNT (state, { idx, count }) {
     state.cart[idx].count = count
+  },
+  /**
+   * Empty the cart
+   *
+   * @param {object} state    The module state
+   */
+  EMPTY_CART (state) {
+    state.cart = []
   }
 }

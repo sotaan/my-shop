@@ -11,32 +11,27 @@ export default {
    * @param   {number}  count               The product count to increment/decrement
    * @param   {boolean} [increment=false]   Whether count shall be incremented or decremented
    */
-  handleQuantityForProduct ({ state, commit, dispatch }, { id, count, increment = true }) {
-    return dispatch('findProductRow', id)
-      .then((idx) => {
-        if (idx) {
-          const row = state.cart[idx]
-          const { count: _count } = row
-          const newCount = increment ? _count + count : _count - count
+  handleQuantityForProduct ({ state, commit, dispatch, getters }, { id, count, increment = true }) {
+    const idx = getters.findProductRow(id)
 
-          commit('CHANGE_PRODUCT_ROW_COUNT', { idx, count: newCount })
-        } else {
-          commit('ADD_PRODUCT_ROW', { id, count })
-        }
-      })
+    if (idx !== -1) {
+      const row = state.cart[idx]
+      const { count: _count } = row
+      const newCount = increment ? _count + count : _count - count
+      const isAnUpdate = newCount !== 0
+      const name = isAnUpdate ? 'CHANGE_PRODUCT_ROW_COUNT' : 'REMOVE_PRODUCT_ROW'
+      const params = isAnUpdate ? { idx, count: newCount } : idx
+
+      commit(name, params)
+    } else {
+      commit('ADD_PRODUCT_ROW', { id, count })
+    }
   },
 
-  /**
-   * Find if a product is already in cart and will return its row index or `false`
-   *
-   * @param {object}          { state }    The module state
-   * @param {number}          id           The product id
-   * @returns {number|false}               The existing product row index or `false`
-   */
-  findProductRow ({ state }, id) {
-    const { cart } = state
-    const idx = cart.findIndex(row => row.id === id)
+  emptyCart ({ getters, commit }) {
+    // Again, if I'm really dumb and create an edge case (need to sleep sorry)
+    if (getters.nbProductsInCart) return false
 
-    return idx !== -1 ? idx : false
+    commit('EMPTY_CART')
   }
 }
