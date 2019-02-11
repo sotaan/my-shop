@@ -9,6 +9,7 @@ export const addToCartButton = '[data-cy=add-to-cart-button]'
 export const cartProductRow = (row = 1) => `[data-cy=cart-product-${row}]`
 export const cartProductCount = '[data-cy=cart-product-count]'
 export const cartProductRemoveButton = '[data-cy=cart-product-remove-button]'
+export const noProductsInCartNotification = '[data-cy=no-products-zone]'
 
 // Navbar
 export const navbarCartLink = '[data-cy=navbar-cart-link]'

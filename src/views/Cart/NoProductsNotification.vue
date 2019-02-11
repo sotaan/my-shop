@@ -27,7 +27,7 @@
 </template>
 
 <style lang="scss" scoped>
-  .no-products-zone > .more {
+  .no-products-container > .more {
     margin-top: 4rem;
   }
 </style>

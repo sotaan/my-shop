@@ -14,9 +14,10 @@
         </span>
         <p class="has-text-info">
           Quantity:
-          <span data-cy="cart-product-count">
-            {{ row.count }}
-          </span>
+          <span
+            data-cy="cart-product-count"
+            v-text="row.count"
+          />
         </p>
       </div>
       <a

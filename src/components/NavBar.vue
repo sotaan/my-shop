@@ -33,9 +33,11 @@
               class="button is-primary"
             >
               <strong>
-                My Cart (<span data-cy="cart-products-count">
-                  {{ nbProductsInCart }}
-                </span>)
+                My Cart (
+                <span
+                  data-cy="cart-products-count"
+                  v-text="nbProductsInCart"
+                />)
               </strong>
             </router-link>
           </div>
