@@ -20,7 +20,7 @@
       </div>
     </div>
     <footer class="card-footer buy-zone">
-      <p class="card-footer-item">
+      <p class="card-footer-item field is-grouped">
         <b-input
           v-model="quantity"
           class="quantity-input"
@@ -29,10 +29,12 @@
           min="1"
         />
         <a
-          class="button is-primary is-rounded"
+          class="button  is-primary is-rounded"
           @click="handleProductQuantity"
         >
-          Add to Cart
+          <span class="icon is-small">
+            <i class="fas fa-plus" />
+          </span>
         </a>
       </p>
     </footer>
@@ -43,7 +45,7 @@
 import PhotosCarousel from './PhotosCarousel'
 
 export default {
-  name: 'ProductsCard',
+  name: 'ProductCard',
 
   components: {
     PhotosCarousel
@@ -91,9 +93,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-  .buy-zone > .card-footer-item .quantity-input {
-    margin-right: 1rem;
-  }
-</style>
