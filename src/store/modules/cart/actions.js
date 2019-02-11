@@ -36,7 +36,7 @@ export default {
    */
   emptyCart ({ getters, commit }) {
     // Again, if I'm really dumb and create an edge case (need to sleep sorry)
-    if (getters.nbProductsInCart) return false
+    if (!getters.nbProductsInCart) return false
 
     commit('EMPTY_CART')
   }
