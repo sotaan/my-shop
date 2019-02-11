@@ -63,11 +63,6 @@ export default {
       return this.findProduct(this.row.id)
     },
 
-    title () {
-      const { product, row } = this
-      return `${product.title} x${row.count}`
-    },
-
     photos () {
       return this.product.photos.slice(0, 5)
     }
