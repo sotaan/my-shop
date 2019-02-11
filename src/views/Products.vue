@@ -67,6 +67,8 @@ export default {
 
     handleQuantity (product, count) {
       const { id } = product
+      // if I'm dumb...
+      if (count === 0) return null
 
       this.handleQuantityForProduct({
         id,
