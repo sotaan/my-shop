@@ -88,8 +88,12 @@ export default {
   display: flex;
   justify-content: space-between;
 
+  .box-header-title {
+    flex-grow: 1;
+  }
+
   &:not(:hover) .remove-button {
     display: none;
-   }
+  }
 }
 </style>

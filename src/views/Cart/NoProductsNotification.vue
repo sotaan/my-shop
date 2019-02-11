@@ -4,7 +4,7 @@
       <div class="column">
         <b-notification
           type="is-danger"
-          :duration="10000"
+          :duration="7000"
         >
           There is no products in Cart, you cannot continue here
         </b-notification>
