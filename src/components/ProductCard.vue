@@ -23,13 +23,15 @@
       <p class="card-footer-item field is-grouped">
         <b-input
           v-model="quantity"
+          data-cy="quantity-input"
           class="quantity-input"
           placeholder="How much?"
           type="number"
           min="1"
         />
         <a
-          class="button  is-primary is-rounded"
+          class="button is-primary is-rounded"
+          data-cy="add-in-cart-button"
           @click="handleProductQuantity"
         >
           <span class="icon is-small">

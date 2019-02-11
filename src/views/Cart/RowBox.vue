@@ -9,13 +9,19 @@
       class="box-collapse-trigger"
     >
       <div class="box-header-title has-text-link">
-        <span>{{ product.title }}</span>
+        <span :data-cy="`cart-product-${product.id}-title`">
+          {{ product.title }}
+        </span>
         <p class="has-text-info">
-          Quantity: {{ row.count }}
+          Quantity:
+          <span :data-cy="`cart-product-${product.id}-count`">
+            {{ row.count }}
+          </span>
         </p>
       </div>
       <a
         class="button remove-button is-danger is-outlined"
+        :data-cy="`cart-product-${product.id}-title`"
         @click.once="removeFromCart"
       >
         <span>Delete</span>
@@ -79,16 +85,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.box-collapse-trigger {
-  display: flex;
-  justify-content: space-between;
+  .box-collapse-trigger {
+    display: flex;
+    justify-content: space-between;
 
-  .box-header-title {
-    flex-grow: 1;
-  }
+    .box-header-title {
+      flex-grow: 1;
+    }
 
-  &:not(:hover) .remove-button {
-    display: none;
+    &:not(:hover) .remove-button {
+      display: none;
+    }
   }
-}
 </style>

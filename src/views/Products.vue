@@ -16,11 +16,13 @@
       <div
         v-for="(row, i) in rows"
         :key="`row-${i}`"
+        :data-cy="`row-${i}`"
         class="columns"
       >
         <div
           v-for="(product, j) in row"
           :key="`row-${i}-column-${j}`"
+          :data-cy="`row-${i}-column-${j}`"
           class="column is-3"
         >
           <ProductCard

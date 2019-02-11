@@ -1,5 +1,8 @@
 <template>
-  <div class="no-products-zone">
+  <div
+    class="no-products-container"
+    data-cy="no-products-zone"
+  >
     <div class="columns">
       <div class="column">
         <b-notification
@@ -16,7 +19,7 @@
           You should
           <router-link to="/">
             buy some
-          </router-link> of our awesome products (honestly)!
+          </router-link>of our awesome products (honestly)!
         </div>
       </div>
     </div>

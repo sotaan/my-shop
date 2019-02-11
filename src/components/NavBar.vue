@@ -17,6 +17,7 @@
       <div class="navbar-start">
         <router-link
           class="navbar-item"
+          data-cy="navbar-products-link"
           to="/"
         >
           Products
@@ -27,6 +28,7 @@
         <div class="navbar-item">
           <div class="buttons">
             <router-link
+              data-cy="navbar-cart-link"
               to="/cart"
               class="button is-primary"
             >
@@ -50,6 +52,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>
