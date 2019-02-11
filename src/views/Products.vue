@@ -12,7 +12,7 @@
         </div>
       </div>
     </section>
-    <div class="container is-fluid">
+    <div class="products-list-container container is-fluid">
       <div
         v-for="(row, i) in rows"
         :key="`row-${i}`"
@@ -78,3 +78,9 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .products-list-container {
+    margin-top: 1rem;
+  }
+</style>
