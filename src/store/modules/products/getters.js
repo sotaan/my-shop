@@ -24,6 +24,16 @@ export default {
       }
     })
   },
+  /**
+   * Find a product in the collection
+   *
+   * @param {object} state      The module state
+   * @param {object} getters    The module state
+   * @returns {object}          The product or `undefined`
+   */
+  findProduct (state, getters) {
+    return (id) => getters.products.find(row => row.id === id)
+  },
 
   /**
    * Prepares metadata for pagination about current page in UI
