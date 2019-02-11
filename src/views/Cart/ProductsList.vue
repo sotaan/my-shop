@@ -1,8 +1,9 @@
 <template>
   <div class="cart-products-list container is-fluid">
     <RowBox
-      v-for="row in rows"
+      v-for="(row, i) in rows"
       :key="row.id"
+      :data-cy="`cart-product-${i+1}`"
       :row="row"
       @delete-row="handleRowDeletion"
     />

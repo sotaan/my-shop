@@ -9,19 +9,19 @@
       class="box-collapse-trigger"
     >
       <div class="box-header-title has-text-link">
-        <span :data-cy="`cart-product-${product.id}-title`">
+        <span data-cy="cart-product-title">
           {{ product.title }}
         </span>
         <p class="has-text-info">
           Quantity:
-          <span :data-cy="`cart-product-${product.id}-count`">
+          <span data-cy="cart-product-count">
             {{ row.count }}
           </span>
         </p>
       </div>
       <a
         class="button remove-button is-danger is-outlined"
-        :data-cy="`cart-product-${product.id}-title`"
+        data-cy="cart-product-remove-button"
         @click.once="removeFromCart"
       >
         <span>Delete</span>
