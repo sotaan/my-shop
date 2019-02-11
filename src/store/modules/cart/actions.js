@@ -13,18 +13,19 @@ export default {
    */
   handleQuantityForProduct ({ state, commit, dispatch, getters }, { id, count, increment = true }) {
     const idx = getters.findProductRow(id)
+    const quantity = Number(count)
 
     if (idx !== -1) {
       const row = state.cart[idx]
       const { count: _count } = row
-      const newCount = increment ? _count + count : _count - count
+      const newCount = increment ? _count + quantity : _count - quantity
       const isAnUpdate = newCount !== 0
       const name = isAnUpdate ? 'CHANGE_PRODUCT_ROW_COUNT' : 'REMOVE_PRODUCT_ROW'
       const params = isAnUpdate ? { idx, count: newCount } : idx
 
       commit(name, params)
     } else {
-      commit('ADD_PRODUCT_ROW', { id, count })
+      commit('ADD_PRODUCT_ROW', { id, count: quantity })
     }
   },
 
