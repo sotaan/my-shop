@@ -1,5 +1,9 @@
 <template>
   <div class="as-products">
+    <b-loading
+      :active="loading"
+      is-full-page
+    />
     <section class="hero is-bold is-primary">
       <div class="hero-body">
         <div class="container is-fluid">
@@ -59,7 +63,7 @@ export default {
   computed: {
     ...mapGetters('cart', ['findProductRow']),
     ...mapGetters('products', ['page']),
-    ...mapState('products', ['loaded']),
+    ...mapState('products', ['loading']),
     ...mapState('cart', ['cart']),
 
     rows () {

@@ -5,5 +5,5 @@ export default () => ({
   // this is to preserve performance &- avoid long first rendering problems (which is unacceptable)
   pageSize: 15,
   currentPageIdx: 0,
-  loaded: false
+  loading: false
 })
