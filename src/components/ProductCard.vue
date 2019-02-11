@@ -68,6 +68,10 @@ export default {
     userId: {
       type: Number,
       default: -1
+    },
+    cartRowCount: {
+      type: Number,
+      default: 0
     }
   },
 
@@ -75,6 +79,12 @@ export default {
     return {
       quantity: 0,
       carousels: null
+    }
+  },
+
+  watch: {
+    cartRowCount () {
+      this.quantity = 0
     }
   },
 

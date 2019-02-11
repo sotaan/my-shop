@@ -27,6 +27,7 @@
             :photos="product.photos"
             :title="product.title"
             :user-id="product.userId"
+            :cart-row-count="computeCartRowCount(product)"
             @add-quantity="(count) => handleQuantity(product, count)"
           />
         </div>
@@ -54,8 +55,10 @@ export default {
   },
 
   computed: {
+    ...mapGetters('cart', ['findProductRow']),
     ...mapGetters('products', ['page']),
     ...mapState('products', ['loaded']),
+    ...mapState('cart', ['cart']),
 
     rows () {
       return chunk(this.page, this.nbColumns)
@@ -74,6 +77,13 @@ export default {
         id,
         count
       })
+    },
+
+    computeCartRowCount (product) {
+      const { findProductRow, cart } = this
+      const idx = product ? findProductRow(product.id) : -1
+
+      return idx === -1 ? 0 : cart[idx].count
     }
   }
 }
