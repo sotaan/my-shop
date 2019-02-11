@@ -32,7 +32,11 @@
               to="/cart"
               class="button is-primary"
             >
-              <strong>My Cart ({{ nbProductsInCart }})</strong>
+              <strong>
+                My Cart (<span data-cy="cart-products-count">
+                  {{ nbProductsInCart }}
+                </span>)
+              </strong>
             </router-link>
           </div>
         </div>

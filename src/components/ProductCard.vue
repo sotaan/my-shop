@@ -31,7 +31,7 @@
         />
         <a
           class="button is-primary is-rounded"
-          data-cy="add-in-cart-button"
+          data-cy="add-to-cart-button"
           @click="handleProductQuantity"
         >
           <span class="icon is-small">
